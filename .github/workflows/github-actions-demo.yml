@@ -4,8 +4,10 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+    - name: checkout repo
+      uses: actions/checkout@v3
     - name: Install newman
       run: npm install -g newman
     - name: Run collection
-      run: newman run collection.json
+      run: newman run "https://www.getpostman.com/collections/d57c23a83c933d77706a" -e postman_environment.json
 
